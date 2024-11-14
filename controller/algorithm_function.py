@@ -36,13 +36,25 @@ class algorithm_function():
         "Selalu belajar dari kesalahan"
     ]
 
-    def viginere(self):
-        teks_enkripsi = "hehe"
-        teks_dekripsi = "dekripso"
+    def viginere(self, key):
+        text_decrypted = random.choice(self.sentences)
+        
+        key_length = len(key)
+        key_as_int = [ord(i) for i in key]
+        text_as_int = [ord(i) for i in text_decrypted]
+
+        encrypted_text = ""
+        for i in range(len(text_as_int)):
+            if text_decrypted[i].isalpha():  # Hanya mengenkripsi huruf
+                offset = 65 if text_decrypted[i].isupper() else 97
+                encrypted_char = chr((text_as_int[i] + key_as_int[i % key_length] - 2 * offset) % 26 + offset)
+                encrypted_text += encrypted_char
+            else:
+                encrypted_text += text_decrypted[i]  # Biarkan karakter non-huruf tetap sama
 
         output = {
-            'teks_enkripsi': teks_enkripsi,
-            'teks_dekripsi': teks_dekripsi
+            'teks_enkripsi': encrypted_text,
+            'teks_dekripsi': text_decrypted
         }
     
         return jsonify(output)
@@ -64,22 +76,3 @@ class algorithm_function():
             'teks_dekripsi': text_decrypted
         }
         return jsonify(output)
-
-
-
-
-def vigenere_cipher(text, key):
-    encrypted_text = ""
-    key_length = len(key)
-    key_as_int = [ord(i) for i in key]
-    text_as_int = [ord(i) for i in text]
-    
-    for i in range(len(text_as_int)):
-        if text[i].isalpha():  # Hanya mengenkripsi huruf
-            offset = 65 if text[i].isupper() else 97
-            encrypted_char = chr((text_as_int[i] + key_as_int[i % key_length] - 2 * offset) % 26 + offset)
-            encrypted_text += encrypted_char
-        else:
-            encrypted_text += text[i]  # Biarkan karakter non-huruf tetap sama
-            
-    return encrypted_text
