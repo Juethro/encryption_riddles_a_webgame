@@ -64,3 +64,22 @@ class algorithm_function():
             'teks_dekripsi': text_decrypted
         }
         return jsonify(output)
+
+
+
+
+def vigenere_cipher(text, key):
+    encrypted_text = ""
+    key_length = len(key)
+    key_as_int = [ord(i) for i in key]
+    text_as_int = [ord(i) for i in text]
+    
+    for i in range(len(text_as_int)):
+        if text[i].isalpha():  # Hanya mengenkripsi huruf
+            offset = 65 if text[i].isupper() else 97
+            encrypted_char = chr((text_as_int[i] + key_as_int[i % key_length] - 2 * offset) % 26 + offset)
+            encrypted_text += encrypted_char
+        else:
+            encrypted_text += text[i]  # Biarkan karakter non-huruf tetap sama
+            
+    return encrypted_text
