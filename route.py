@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 
 # import controller
-from controller.algorithm_function import algorithm_function
+from controller.algorithm_function_chapter_1 import algorithm_function
 
 app = Flask(__name__)
 CORS(app)
