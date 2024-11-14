@@ -51,7 +51,7 @@ export FLASK_APP=route.py
 
 jalankan flask
 ```bash
-flask run
+python route.py
 ```
 
 jalankan flask dengan debug mode

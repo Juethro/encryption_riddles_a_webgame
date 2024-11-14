@@ -1,8 +1,12 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template
 from flask_cors import CORS
 
 # import controller
-from controller.algorithm_function_chapter_1 import algorithm_function
+from controller.algorithm_function_chapter_1 import algorithm_function_chapter_1
+from controller.algorithm_function_chapter_2 import algorithm_function_chapter_2
+from controller.algorithm_function_chapter_3 import algorithm_function_chapter_3
+from controller.algorithm_function_chapter_4 import algorithm_function_chapter_4
+from controller.algorithm_function_chapter_5 import algorithm_function_chapter_5
 
 app = Flask(__name__)
 CORS(app)
@@ -32,18 +36,30 @@ def chapter_lima():
     return render_template("chapter_lima.html")
 
 
-# Contoh Rute generate viginere
-@app.route("/viginere", methods=['POST'])
-def generate_viginere():
-    # data = request.get_json()
-    # key_data = str(data.get('key'))
-    return algorithm_function().viginere()
+# Generate for Chapter 1
+@app.route("/viginerechapterone", methods=['POST'])
+def generate_chapterone():
+    return algorithm_function_chapter_1().viginere()
 
-@app.route("/caesarcipher", methods=['POST'])
-def generate_caesar_cipher():
-    # data = request.get_json()
-    # shift = int(data.get('shift'))  # Mengambil nilai shift dari data JSON
-    return algorithm_function().caesar_cipher()
+# Generate for Chapter 2
+@app.route("/caesarcipherchaptertwo", methods=['POST'])
+def generate_chaptertwo():
+    return algorithm_function_chapter_2().caesar_cipher()
+
+# Generate for Chapter 3
+@app.route("/caesarcipherchapterthree", methods=['POST'])
+def generate_chapterthree():
+    return algorithm_function_chapter_3().caesar_cipher()
+
+# Generate for Chapter 4
+@app.route("/viginerechapterfour", methods=['POST'])
+def generate_chapterfour():
+    return algorithm_function_chapter_4().viginere()
+
+# Generate for Chapter 5
+@app.route("/caesarcipherchapterfive", methods=['POST'])
+def generate_chapterfive():
+    return algorithm_function_chapter_5().caesar_cipher()
 
 
 

@@ -1,7 +1,7 @@
 from flask import jsonify
 import random
 
-class algorithm_function():
+class algorithm_function_chapter_2():
     # Database kalimat sederhana
     sentences = [
         "XJBLKP",
@@ -48,9 +48,9 @@ class algorithm_function():
                 encrypted_text += text_decrypted[i]  # Biarkan karakter non-huruf tetap sama
 
         output = {
-            'teks_enkripsi': encrypted_text,
-            'teks_dekripsi': text_decrypted,
-            'kunci': key
+            'teks_enkripsi': encrypted_text.upper(),
+            'teks_dekripsi': text_decrypted.upper(),
+            'kunci': key.upper()
         }
     
         return jsonify(output)
@@ -71,8 +71,8 @@ class algorithm_function():
                 encrypted_text += char
         
         output = {
-            'teks_enkripsi': encrypted_text,
-            'teks_dekripsi': text_decrypted,
-            'kunci': shift_key
+            'teks_enkripsi': encrypted_text.upper(),
+            'teks_dekripsi': text_decrypted.upper(),
+            'kunci': shift_key.upper()
         }
         return jsonify(output)

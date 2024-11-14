@@ -16,7 +16,8 @@
             <p><strong>kunci:</strong> <span id="kunci"></span></p>
         </div>
 
-        <form action="/chaptertiga" method="POST">
+        <form id="inputForm">
+            <input type="text" id="inputText" onkeyup="this.value = this.value.toUpperCase();">
             <button type="submit">Next</button>
         </form>
 
@@ -24,18 +25,16 @@
 </html>
 
 <script>
+    let decryptedText = '';
+
     async function processCaesarCipher() {
-        // Ambil teks dari textarea
-        const text = document.getElementById('inputText').value;
-        
         // Kirim data ke endpoint /caesarcipher dengan metode POST
-        const response = await fetch('/caesarcipher', {
+        const response = await fetch('/caesarcipherchaptertwo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                shift: text
             })
         });
         
@@ -46,6 +45,30 @@
         document.getElementById('encryptedText').textContent = data.teks_enkripsi;
         document.getElementById('decryptedText').textContent = data.teks_dekripsi;
         document.getElementById('kunci').textContent = data.kunci;
+
+        // Simpan teks dekripsi untuk perbandingan nanti
+        decryptedText = data.teks_dekripsi;
     }
-    window.addEventListener('load', processViginere);
+
+    // Fungsi untuk memeriksa input pengguna sebelum mengirim form
+    document.getElementById('inputForm').addEventListener('submit', async function (e) {
+        e.preventDefault(); // Mencegah form agar tidak langsung terkirim
+
+        const userInput = document.getElementById('inputText').value;
+
+        // Periksa input user dengan text asli
+        if (userInput === decryptedText) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/chaptertiga';
+            document.body.appendChild(form);
+            form.submit();
+        } else {
+            // Jika validasi gagal, arahkan ke halaman utama
+            window.location.href = '/';
+        }
+    });
+
+    // Auto aktivasi fungsi
+    window.addEventListener('load', processCaesarCipher);
 </script>
