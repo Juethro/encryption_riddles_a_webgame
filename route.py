@@ -16,6 +16,10 @@ def index():
 def generate_viginere():
     return algorithm_function().viginere()
 
+@app.route("/caesarcipher/<int:shift>", methods=['GET'])
+def generate_caesar_cipher(shift):
+    return algorithm_function().caesar_cipher(shift)
+
 
 
 if __name__ == "__main__":
