@@ -27,6 +27,10 @@ def chapter_tiga():
 def chapter_empat():
     return render_template("chapter_empat.html")
 
+@app.route("/chapterlima", methods=['POST'])
+def chapter_lima():
+    return render_template("chapter_lima.html")
+
 
 # Contoh Rute generate viginere
 @app.route("/viginere", methods=['POST'])
