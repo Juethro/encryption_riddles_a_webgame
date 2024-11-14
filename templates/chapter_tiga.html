@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chapter Tiga</title>
+    </head>
+    <body>
+        <h1>Selamat datang di Chapter Tiga</h1>
+        <p>Ini adalah halaman sederhana untuk Chapter Tiga.</p>
+
+        <!-- Tempat untuk menampilkan hasil -->
+        <div id="output">
+            <p><strong>Teks Enkripsi:</strong> <span id="encryptedText"></span></p>
+            <p><strong>Teks Dekripsi:</strong> <span id="decryptedText"></span></p>
+            <p><strong>kunci:</strong> <span id="kunci"></span></p>
+        </div>
+
+        <form action="/chapterempat" method="POST">
+            <button type="submit">Next</button>
+        </form>
+
+    </body>
+</html>
+
+<script>
+    async function processCaesarCipher() {
+        // Ambil teks dari textarea
+        const text = document.getElementById('inputText').value;
+        
+        // Kirim data ke endpoint /caesarcipher dengan metode POST
+        const response = await fetch('/caesarcipher', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                shift: text
+            })
+        });
+        
+        // Ambil hasil enkripsi dan dekripsi dari respons
+        const data = await response.json();
+        
+        // Tampilkan hasil enkripsi dan dekripsi di halaman HTML
+        document.getElementById('encryptedText').textContent = data.teks_enkripsi;
+        document.getElementById('decryptedText').textContent = data.teks_dekripsi;
+        document.getElementById('kunci').textContent = data.kunci;
+    }
+    window.addEventListener('load', processViginere);
+</script>
