@@ -1,5 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_cors import CORS
+
+# import controller
+from controller.algorithm_function import algorithm_function
 
 app = Flask(__name__)
 CORS(app)
@@ -8,14 +11,10 @@ CORS(app)
 def index():
     return render_template("index.html")
 
-# Contoh Rute enkripsi viginere
-@app.route("/enkripsi_viginere", methods=['POST'])
-def enkripsi_viginere(text):
-    pass
-
-@app.route("/dekripsi_viginere", methods=['POST'])
-def enkripsi_(text):
-    pass
+# Contoh Rute generate viginere
+@app.route("/viginere", methods=['GET'])
+def generate_viginere():
+    return algorithm_function().viginere()
 
 
 
