@@ -11,18 +11,35 @@ CORS(app)
 def index():
     return render_template("index.html")
 
+@app.route("/chaptersatu", methods=['POST'])
+def chapter_satu():
+    return render_template("chapter_satu.html")
+
+@app.route("/chapterdua", methods=['POST'])
+def chapter_dua():
+    return render_template("chapter_dua.html")
+
+@app.route("/chaptertiga", methods=['POST'])
+def chapter_tiga():
+    return render_template("chapter_tiga.html")
+
+@app.route("/chapterempat", methods=['POST'])
+def chapter_empat():
+    return render_template("chapter_empat.html")
+
+
 # Contoh Rute generate viginere
 @app.route("/viginere", methods=['POST'])
 def generate_viginere():
-    data = request.get_json()
-    key_data = str(data.get('key'))
-    return algorithm_function().viginere(key_data)
+    # data = request.get_json()
+    # key_data = str(data.get('key'))
+    return algorithm_function().viginere()
 
 @app.route("/caesarcipher", methods=['POST'])
 def generate_caesar_cipher():
-    data = request.get_json()
-    shift = int(data.get('shift'))  # Mengambil nilai shift dari data JSON
-    return algorithm_function().caesar_cipher(shift)
+    # data = request.get_json()
+    # shift = int(data.get('shift'))  # Mengambil nilai shift dari data JSON
+    return algorithm_function().caesar_cipher()
 
 
 

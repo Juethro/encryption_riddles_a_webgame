@@ -36,8 +36,23 @@ class algorithm_function():
         "Selalu belajar dari kesalahan"
     ]
 
-    def viginere(self, key):
+    kunci = [
+        {"one": 1},
+        {"dua": 2},
+        {"tiga": 3},
+        {"empat": 4},
+        {"five": 5},
+        {"enam": 6},
+        {"seven": 7},
+        {"eight": 8},
+        {"nine": 9},
+        {"ten": 10}
+    ]
+
+    def viginere(self):
         text_decrypted = random.choice(self.sentences)
+        key_dict = random.choice(self.kunci)
+        key = list(key_dict.keys())[0]
         
         key_length = len(key)
         key_as_int = [ord(i) for i in key]
@@ -54,13 +69,17 @@ class algorithm_function():
 
         output = {
             'teks_enkripsi': encrypted_text,
-            'teks_dekripsi': text_decrypted
+            'teks_dekripsi': text_decrypted,
+            'kunci': key
         }
     
         return jsonify(output)
 
-    def caesar_cipher(self, shift):
+    def caesar_cipher(self):
         text_decrypted = random.choice(self.sentences)
+        shift_dict = random.choice(self.kunci)
+        shift = list(shift_dict.values())[0]
+        shift_key = list(shift_dict.keys())[0]
         
         encrypted_text = ""
         for char in text_decrypted:
@@ -73,6 +92,7 @@ class algorithm_function():
         
         output = {
             'teks_enkripsi': encrypted_text,
-            'teks_dekripsi': text_decrypted
+            'teks_dekripsi': text_decrypted,
+            'kunci': shift_key
         }
         return jsonify(output)
