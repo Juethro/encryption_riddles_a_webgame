@@ -37,14 +37,14 @@ def chapter_lima():
 
 
 # Generate for Chapter 1
-@app.route("/viginerechapterone", methods=['POST'])
+@app.route("/caesarcipherchapterone", methods=['POST'])
 def generate_chapterone():
-    return algorithm_function_chapter_1().viginere()
+    return algorithm_function_chapter_1().caesar_cipher()
 
 # Generate for Chapter 2
-@app.route("/caesarcipherchaptertwo", methods=['POST'])
+@app.route("/viginerechaptertwo", methods=['POST'])
 def generate_chaptertwo():
-    return algorithm_function_chapter_2().caesar_cipher()
+    return algorithm_function_chapter_2().viginere()
 
 # Generate for Chapter 3
 @app.route("/caesarcipherchapterthree", methods=['POST'])

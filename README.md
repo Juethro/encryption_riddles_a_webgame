@@ -3,11 +3,6 @@ A Riddles Web Game, made of python with flask.
 
 # Folder Structures
 ```
-assets/
-```
-Berisi aset web seperti gambar, video, dll.
-
-```
 controller/
 ```
 Berisi fungsi atau algoritma dalam web, akan dipanggil di route.py
@@ -18,7 +13,7 @@ templates/
 Berisi file UI seperti HTML
 
 `static/`
-Berisi file statis seperti CSS dan Javascript
+Berisi file statis seperti CSS dan Javascript serta aset web
 
 # How To Setup
 Note: Gunakan Python3.10
