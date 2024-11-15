@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- script tailwindcss CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
         <title>Chapter Satu</title>
     </head>
@@ -26,7 +27,6 @@
         <div id="popup_jawaban_salah" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
             <div class="bg-white border border-black p-5">
                 <p>Jawaban Salah!</p>
-                <p>Anda akan diarahkan ke Halaman Utama!</p>
                 <button onclick="document.getElementById('popup_jawaban_salah').classList.add('hidden');">OK</button>
             </div>
         </div>
@@ -50,6 +50,7 @@
             <button type="submit">Next</button>
         </form>
 
+        <!-- Audio button + autoplay -->
         <div class="bg-white border-2 rounded-md">
             <button id="unmuteButton">Unmute</button>
         </div>
@@ -66,7 +67,7 @@
 <script>
     let decryptedText = '';
 
-    async function processViginere() {
+    async function processCaesarCipher() {
         // Kirim data ke endpoint /viginere dengan metode POST
         const response = await fetch('/caesarcipherchapterone', {
             method: 'POST',
@@ -115,6 +116,7 @@
         }
     });
 
+    // Page Timer System
     let startTime = 0;
     let timerInterval ;
     let fiveMinutes = 5 * 60 * 1000; // 5 menit dalam milidetik
@@ -176,7 +178,7 @@
 
     // Auto aktivasi fungsi
     window.addEventListener('load', () => {
-        processViginere();
+        processCaesarCipher();
         startTimer();
     });
 </script>
