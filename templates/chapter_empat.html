@@ -14,7 +14,7 @@
         <title>Chapter Empat</title>
     </head>
 
-    <body class="w-screen h-screen flex flex-col justify-evenly items-center">
+    <body class="w-screen h-screen flex flex-col justify-evenly items-center bg-[url('static/images/chapter4.jpg')] bg-center bg-cover">
         <!-- Popup ketika waktu habis -->
         <div id="popup_waktu_habis" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
             <div class="bg-white border border-black p-5">
@@ -38,30 +38,30 @@
             </div>
         </div>
 
-        <div class="pixel-font text-xs">
+        <div class="pixel-font text-xs text-white">
             <h1>Selamat datang di Chapter Empat</h1>
         </div>
         
         <div class="flex-col pixel-font text-xs">
-            <div class="flex justify-center">
+            <div class="flex justify-center text-white">
                 <p>
                     Terdapat sebuah mitos harta karun legendaris di dalam piramida kuno,
                 </p>
             </div>
 
-            <div class="flex justify-center">
+            <div class="flex justify-center text-white">
                 <p>
                     Sang petualang masuk dan harus melawan 2 mummy jahat,
                 </p>
             </div>
 
-            <div class="flex justify-center">
+            <div class="flex justify-center text-white">
                 <p>
                     petualang menemukan gulungan papirus legendaris
                 </p>
             </div>
 
-            <div class="flex justify-center">
+            <div class="flex justify-center text-white">
                 <p>
                     dengan mantra yang terkunci dengan "
                 </p>
@@ -72,19 +72,19 @@
             </div>
 
             <div class="flex justify-center">
-                <p class="">"Sebutkan mantranya untuk mengalahkan musuhmu:<span class="text-red-500" id="encryptedText"></span>".</p>
+                <p class="text-white">"Sebutkan mantranya untuk mengalahkan musuhmu:<span class="text-red-500" id="encryptedText"></span>".</p>
             </div>
         </div>
         
         <!-- Tempat untuk menampilkan hasil -->
-        <div class="flex flex-col" id="output">
+        <div class="flex flex-col text-white" id="output">
             <div class="flex justify-center pixel-font text-xs">
                 <p><strong>Teks Dekripsi:</strong> <span id="decryptedText"></span></p>
             </div>
         </div>
 
         <!-- Timer Element -->
-        <div class="pixel-font" id="timer">00:00</div>
+        <div class="pixel-font text-white" id="timer">00:00</div>
 
         <!-- Form jawaban -->
         <div class="flex flex-col items-center space-y-4">
@@ -118,6 +118,11 @@
             Browser Anda tidak mendukung elemen audio.
         </audio>
 
+        <img src="static\images\kece2.png" alt="police1" class="absolute bottom-44 left-0 h-80 transform">
+
+        <img src="static\images\kece1.png" alt="police1" class="absolute bottom-44 left-60 h-80 transform">
+
+        <img src="static\images\icad1.png" alt="icad1" class="absolute bottom-10 right-40 h-96 transform">
     </body>
 </html>
 

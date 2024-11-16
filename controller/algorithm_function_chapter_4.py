@@ -4,16 +4,11 @@ import random
 class algorithm_function_chapter_4:
     # Database kalimat sederhana
     sentences = [
-        "XJBLKP",
-        "HRTWQZ",
-        "MFJZNP",
-        "VCKLYR",
-        "QPSLDH",
-        "ZBKJRW",
-        "DFTLQM",
-        "WRXHJC",
-        "LPZQNV",
-        "KGHLMP",
+        "LUNIRA",
+        "TOVIRA",
+        "JILORA",
+        "ZELMIR",
+        "ABRAKA",
     ]
 
     kunci = [

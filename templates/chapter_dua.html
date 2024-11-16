@@ -13,8 +13,8 @@
         </style>
         <title>Chapter Dua</title>
     </head>
-    
-    <body class="w-screen h-screen flex flex-col justify-evenly items-center">
+
+    <body class="w-screen h-screen flex flex-col justify-evenly items-center bg-[url('static/images/chapter2.jpg')] bg-center bg-cover">
         <!-- Popup ketika waktu habis -->
         <div id="popup_waktu_habis" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
             <div class="bg-white border border-black p-5">
@@ -51,13 +51,13 @@
 
             <div class="flex justify-center">
                 <p>
-                    dan operator Satria harus menekan tombol darurat untuk mencegah bencana.
+                    operator Jethro dan Ian harus menekan tombol darurat untuk mencegah bencana.
                 </p>
             </div>
 
             <div class="flex justify-center">
                 <p>
-                    Namun, tombol tersebut terkunci dengan sandi Vigenère.
+                    Namun, tombol tersebut terkunci dengan chiper.
                 </p>
             </div>
 
@@ -68,7 +68,7 @@
             </div>
 
             <div class="flex justify-center">
-                <p class="">"Dekripsi pesan :<span class="text-red-500" id="encryptedText"></span> dengan kunci :<p><strong></strong><span class="text-red-500" id="kunci"></span></p>"</p>
+                <p class="">"Dekripsi pesan :<span class="text-blue-700" id="encryptedText"></span> dengan kunci :<p><strong></strong><span class="text-blue-700" id="kunci"></span></p>"</p>
             </div>
         </div>
 
@@ -97,7 +97,7 @@
                 <!-- Submit Button -->
                 <button
                     type="submit"
-                    class="bg-yellow-500 hover:bg-yellow-600 text-black text-xs font-bold py-2 px-4 rounded-full shadow-lg pixel-font"
+                    class="bg-blue-600 hover:bg-blue-700 text-black text-xs font-bold py-2 px-4 rounded-full shadow-lg pixel-font"
                 >
                     Next
                 </button>
@@ -105,7 +105,7 @@
         </div>
 
         <!-- Audio button + autoplay -->
-        <div class="bg-yellow-500 hover:bg-yellow-600 text-black text-xs font-bold py-2 px-4 rounded-full shadow-lg pixel-font">
+        <div class="bg-blue-600 hover:bg-blue-700 text-black text-xs font-bold py-2 px-4 rounded-full shadow-lg pixel-font">
             <button id="unmuteButton">Unmute</button>
         </div>
 
@@ -114,6 +114,9 @@
             Browser Anda tidak mendukung elemen audio.
         </audio>
 
+        <img src="static\images\nyon2.png" alt="police1" class="absolute bottom-28 left-40 w-96 transform">
+
+        <img src="static\images\jethro2.png" alt="police1" class="absolute bottom-28 right-40 w-96 transform">
     </body>
 </html>
 
