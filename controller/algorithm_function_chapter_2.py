@@ -1,7 +1,7 @@
 from flask import jsonify
 import random
 
-class algorithm_function_chapter_2():
+class algorithm_function_chapter_2:
     # Database kalimat sederhana
     sentences = [
         "XJBLKP",
@@ -17,62 +17,71 @@ class algorithm_function_chapter_2():
     ]
 
     kunci = [
-        {"one": 1},
-        {"dua": 2},
-        {"tiga": 3},
-        {"empat": 4},
-        {"five": 5},
-        {"enam": 6},
-        {"seven": 7},
-        {"eight": 8},
-        {"nine": 9},
-        {"ten": 10}
+        {"one": "ONE"},
+        {"dua": "DUA"},
+        {"tiga": "TIGA"},
+        {"empat": "EMPAT"},
+        {"five": "FIVE"},
+        {"enam": "ENAM"},
+        {"seven": "SEVEN"},
+        {"eight": "EIGHT"},
+        {"nine": "NINE"},
+        {"ten": "TEN"}
     ]
 
     def viginere(self):
+        # Memilih teks dan kunci secara acak
         text_decrypted = random.choice(self.sentences)
         key_dict = random.choice(self.kunci)
-        key = list(key_dict.keys())[0]
-        
-        key_length = len(key)
-        key_as_int = [ord(i) for i in key]
-        text_as_int = [ord(i) for i in text_decrypted]
+        key = list(key_dict.values())[0]  # Mengambil nilai kunci
 
-        encrypted_text = ""
-        for i in range(len(text_as_int)):
-            if text_decrypted[i].isalpha():  # Hanya mengenkripsi huruf
-                offset = 65 if text_decrypted[i].isupper() else 97
-                encrypted_char = chr((text_as_int[i] + key_as_int[i % key_length] - 2 * offset) % 26 + offset)
-                encrypted_text += encrypted_char
+        # Fungsi untuk menghasilkan key yang sesuai dengan panjang pesan
+        def generate_key(msg, key):
+            key = list(key)
+            if len(msg) == len(key):
+                return key
             else:
-                encrypted_text += text_decrypted[i]  # Biarkan karakter non-huruf tetap sama
+                for i in range(len(msg) - len(key)):
+                    key.append(key[i % len(key)])
+            return "".join(key)
+
+        # Fungsi untuk mengenkripsi pesan menggunakan Vigenère
+        def encrypt_vigenere(msg, key):
+            encrypted_text = []
+            key = generate_key(msg, key)
+            for i in range(len(msg)):
+                char = msg[i]
+                if char.isupper():
+                    encrypted_char = chr((ord(char) + ord(key[i]) - 2 * ord('A')) % 26 + ord('A'))
+                elif char.islower():
+                    encrypted_char = chr((ord(char) + ord(key[i]) - 2 * ord('a')) % 26 + ord('a'))
+                else:
+                    encrypted_char = char
+                encrypted_text.append(encrypted_char)
+            return "".join(encrypted_text)
+
+        # Fungsi untuk mendekripsi pesan menggunakan Vigenère
+        def decrypt_vigenere(msg, key):
+            decrypted_text = []
+            key = generate_key(msg, key)
+            for i in range(len(msg)):
+                char = msg[i]
+                if char.isupper():
+                    decrypted_char = chr((ord(char) - ord(key[i]) + 26) % 26 + ord('A'))
+                elif char.islower():
+                    decrypted_char = chr((ord(char) - ord(key[i]) + 26) % 26 + ord('a'))
+                else:
+                    decrypted_char = char
+                decrypted_text.append(decrypted_char)
+            return "".join(decrypted_text)
+
+        # Encrypting and then decrypting the message
+        encrypted_text = encrypt_vigenere(text_decrypted, key)
+        decrypted_text = decrypt_vigenere(encrypted_text, key)
 
         output = {
             'teks_enkripsi': encrypted_text.upper(),
-            'teks_dekripsi': text_decrypted.upper(),
+            'teks_dekripsi': decrypted_text.upper(),
             'kunci': key.upper()
         }
-    
-        return jsonify(output)
-
-    def caesar_cipher(self):
-        text_decrypted = random.choice(self.sentences)
-        shift_dict = random.choice(self.kunci)
-        shift = list(shift_dict.values())[0]
-        shift_key = list(shift_dict.keys())[0]
-        
-        encrypted_text = ""
-        for char in text_decrypted:
-            if char.isalpha():
-                offset = 65 if char.isupper() else 97
-                encrypted_char = chr((ord(char) - offset + shift) % 26 + offset)
-                encrypted_text += encrypted_char
-            else:
-                encrypted_text += char
-        
-        output = {
-            'teks_enkripsi': encrypted_text.upper(),
-            'teks_dekripsi': text_decrypted.upper(),
-            'kunci': shift_key.upper()
-        }
-        return jsonify(output)
+        return output
