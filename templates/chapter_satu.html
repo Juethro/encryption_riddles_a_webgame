@@ -5,18 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- script tailwindcss CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <style>
+            .pixel-font {
+                font-family: 'Press Start 2P', cursive;
+            }
+        </style>
         <title>Chapter Satu</title>
     </head>
-    <body>
+    <body class="w-screen h-screen flex flex-col justify-evenly items-center bg-[url('static/images/chapter1.jpg')] bg-center">
         <!-- Popup ketika waktu habis -->
         <div id="popup_waktu_habis" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
-            <div class="bg-white border border-black p-5">
+            <div class="bg-white border border-black p-5 pixel-font text-xs">
                 <p>Waktu habis! Anda akan diarahkan ke Halaman Utama!</p>
             </div>
         </div>
 
         <!-- Popup ketika jawaban benar -->
-        <div id="popup_jawaban_benar" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
+        <div id="popup_jawaban_benar" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center pixel-font text-xs">
             <div class="bg-white border border-black p-5">
                 <p>Jawaban Benar!</p>
                 <p>Anda akan diarahkan ke Chapter Selanjutnya!</p>
@@ -24,41 +30,83 @@
         </div>
 
         <!-- Popup ketika jawaban salah -->
-        <div id="popup_jawaban_salah" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
+        <div id="popup_jawaban_salah" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center pixel-font text-xs">
             <div class="bg-white border border-black p-5">
                 <p>Jawaban Salah!</p>
                 <button onclick="document.getElementById('popup_jawaban_salah').classList.add('hidden');">OK</button>
             </div>
         </div>
 
-        <h1>Selamat datang di Chapter Satu</h1>
-        <p>Ini adalah halaman sederhana untuk Chapter Satu.</p>
+        <div class="pixel-font text-xs">
+            <h1>Selamat datang di Chapter Satu</h1>
+        </div>
+
+        <div class="flex-col pixel-font text-xs">
+            <div class="flex justify-center">
+                <p>
+                    Di sebuah mansion tua, Tuan Nyon ditemukan tewas di kamar tidurnya,
+                </p>
+            </div>
+
+            <div class="flex justify-center">
+                <p>
+                    dan di samping tubuhnya terdapat pesan terakhir yang ia tulis dengan darahnya:
+                </p>
+            </div>
+
+            <div class="flex justify-center">
+                <p class="text-red-500">"Tolonggg, Pelakunya adalah <span class="" id="encryptedText"></span>"</p>
+            </div>
+
+            <div class="flex justify-center">
+                <p><strong>kunci:</strong> <span id="kunci"></span></p>
+            </div>
+        </div>
 
         <!-- Tempat untuk menampilkan hasil -->
-        <div id="output">
-            <p><strong>Teks Enkripsi:</strong> <span id="encryptedText"></span></p>
-            <p><strong>Teks Dekripsi:</strong> <span id="decryptedText"></span></p>
-            <p><strong>kunci:</strong> <span id="kunci"></span></p>
+        <div class="flex flex-col" id="output">
+            <div class="flex justify-center pixel-font text-xs">
+                <p><strong>Teks Dekripsi:</strong> <span id="decryptedText"></span></p>
+            </div>
         </div>
 
         <!-- Timer Element -->
-        <div id="timer">00:00</div>
+        <div class="pixel-font text-xs" id="timer">00:00</div>
 
         <!-- Form jawaban -->
-        <form id="inputForm">
-            <input class="border-2" type="text" id="inputText" onkeyup="this.value = this.value.toUpperCase();">
-            <button type="submit">Next</button>
-        </form>
+        <div class="flex flex-col items-center space-y-4">
+            <form id="inputForm" class="flex flex-col items-center space-y-4">
+                <!-- Input Field -->
+                <input
+                    class="border-2 border-gray-400 rounded px-4 py-2 w-64 pixel-font text-xs text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    type="text"
+                    id="inputText"
+                    onkeyup="this.value = this.value.toUpperCase();"
+                    placeholder="Enter text here"
+                >
+                <!-- Submit Button -->
+                <button
+                    type="submit"
+                    class="bg-yellow-500 hover:bg-yellow-600 text-black text-xs font-bold py-2 px-4 rounded-full shadow-lg pixel-font"
+                >
+                    Next
+                </button>
+            </form>
+        </div>
 
         <!-- Audio button + autoplay -->
-        <div class="bg-white border-2 rounded-md">
+        <div class="bg-yellow-500 hover:bg-yellow-600 text-black text-xs font-bold py-2 px-4 rounded-full shadow-lg pixel-font">
             <button id="unmuteButton">Unmute</button>
         </div>
+        
         <audio id="audio-bg" autoplay loop muted>
             <source src="{{ url_for('static', filename='music/police_siren.mp3') }}" type="audio/mpeg">
             Browser Anda tidak mendukung elemen audio.
         </audio>
 
+        <img src="static\images\police1.png" alt="police1" class="absolute bottom-10 left-5 h-80 transform">
+
+        <img src="static\images\nyon1.jpg" alt="nyon1" class="absolute bottom-10 right-5 w-96 transform">
     </body>
 
     </body>

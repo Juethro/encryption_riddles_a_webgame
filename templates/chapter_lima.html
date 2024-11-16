@@ -5,9 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- script tailwindcss CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <style>
+            .pixel-font {
+                font-family: 'Press Start 2P', cursive;
+            }
+        </style>
         <title>Chapter Lima</title>
     </head>
-    <body>
+
+    <body class="w-screen h-screen flex flex-col justify-evenly items-center">
         <!-- Popup ketika waktu habis -->
         <div id="popup_waktu_habis" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
             <div class="bg-white border border-black p-5">
@@ -31,14 +38,47 @@
             </div>
         </div>
 
-        <h1>Selamat datang di Chapter Lima!</h1>
-        <p>Ini adalah halaman sederhana untuk Chapter Lima.</p>
+        <div class="pixel-font text-xs">
+            <h1>Selamat datang di Chapter Lima</h1>
+        </div>
+        
+        <div class="flex-col pixel-font text-xs">
+            <div class="flex justify-center">
+                <p>
+                    Di akhir balapan sengit, Seorang pembalap menemukan catatan misterius di jok mobilnya,
+                </p>
+            </div>
+
+            <div class="flex justify-center">
+                <p>
+                    seolah ditinggalkan oleh saingannya yang ingin menantangnya untuk balapan berikutnya.
+                </p>
+            </div>
+
+            <div class="flex justify-center">
+                <p>
+                    Catatan itu berbunyi:
+                </p>
+
+                <p>
+                    Gunakan kunci "
+                </p>
+
+                <p>
+                    <strong></strong><span class="text-red-500" id="kunci"></span>".
+                </p>
+            </div>
+
+            <div class="flex justify-center">
+                <p class="">dan kau akan tahu siapa lawanmu di laga terakhir nanti:<span class="text-red-500" id="encryptedText"></span>.</p>
+            </div>
+        </div>
 
         <!-- Tempat untuk menampilkan hasil -->
-        <div id="output">
-            <p><strong>Teks Enkripsi:</strong> <span id="encryptedText"></span></p>
-            <p><strong>Teks Dekripsi:</strong> <span id="decryptedText"></span></p>
-            <p><strong>kunci:</strong> <span id="kunci"></span></p>
+        <div class="flex flex-col" id="output">
+            <div class="flex justify-center pixel-font text-xs">
+                <p><strong>Teks Dekripsi:</strong> <span id="decryptedText"></span></p>
+            </div>
         </div>
 
         <!-- Timer Element -->
