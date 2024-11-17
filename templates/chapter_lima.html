@@ -14,7 +14,7 @@
         <title>Chapter Lima</title>
     </head>
 
-    <body class="w-screen h-screen flex flex-col justify-evenly items-center bg-[url('static/images/chapter4.jpg')] bg-center bg-cover">
+    <body class="w-screen h-screen flex flex-col justify-evenly items-center bg-[url('static/images/chapter5.jpg')] bg-center bg-cover">
         <!-- Popup ketika waktu habis -->
         <div id="popup_waktu_habis" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
             <div class="bg-white border border-black p-5">
@@ -42,7 +42,7 @@
             <h1>Selamat datang di Chapter Lima</h1>
         </div>
         
-        <div class="flex-col pixel-font text-xs">
+        <div class="flex-col pixel-font text-xs bg-slate-500/50 p-2 rounded">
             <div class="flex justify-center">
                 <p>
                     Di akhir balapan sengit, Seorang pembalap menemukan catatan misterius di jok mobilnya,
@@ -82,23 +82,43 @@
         </div>
 
         <!-- Timer Element -->
-        <div id="timer">00:00</div>
+        <div class="pixel-font text-black bg-slate-500/50 p-2 rounded" id="timer">00:00</div>
 
         <!-- Form jawaban -->
-        <form id="inputForm">
-            <input class="border-2" type="text" id="inputText" onkeyup="this.value = this.value.toUpperCase();">
-            <button type="submit">Next</button>
-        </form>
+        <div class="flex flex-col items-center space-y-4">
+            <form id="inputForm" class="flex flex-col items-center space-y-4">
+                <!-- Input Field -->
+                <input
+                    class="border-2 border-gray-400 rounded px-4 py-2 w-64 pixel-font text-xs text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    type="text"
+                    id="inputText"
+                    onkeyup="this.value = this.value.toUpperCase();"
+                    placeholder="Enter text here"
+                >
+
+                <!-- Submit Button -->
+                <button
+                    type="submit"
+                    class="bg-blue-500 hover:bg-yellow-600 text-black text-xs font-bold py-2 px-4 rounded-full shadow-lg pixel-font"
+                >
+                    Next
+                </button>
+            </form>
+        </div>
 
         <!-- Audio button + autoplay -->
-        <div class="bg-white border-2 rounded-md">
+        <div class="bg-blue-500 hover:bg-yellow-600 text-black text-xs font-bold py-2 px-4 rounded-full shadow-lg pixel-font">
             <button id="unmuteButton">Unmute</button>
         </div>
+
         <audio id="audio-bg" autoplay loop muted>
             <source src="{{ url_for('static', filename='music/police_siren.mp3') }}" type="audio/mpeg">
             Browser Anda tidak mendukung elemen audio.
         </audio>
 
+        <img src="static\images\kece3.png" alt="police1" class="absolute bottom-32 left-60 h-96 transform">
+
+        <img src="static\images\richard2.png" alt="icad1" class="absolute bottom-10 right-40 h-96 transform">
     </body>
 </html>
 

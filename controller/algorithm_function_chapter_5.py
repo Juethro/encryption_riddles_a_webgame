@@ -4,11 +4,11 @@ import random
 class algorithm_function_chapter_5():
     # Database kalimat sederhana
     sentences = [
-        "MONANYON",
-        "MISSNYON",
-        "LADYNYON",
-        "NYONLISA",
-        "NYONNYON",
+        "KECE",
+        "RAFI",
+        "ANDI",
+        "FAJAR",
+        "WALLY",
     ]
 
     kunci = [
