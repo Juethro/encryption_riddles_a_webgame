@@ -16,13 +16,13 @@
     <body class="w-screen h-screen flex flex-col justify-evenly items-center bg-[url('static/images/chapter1.jpg')] bg-center bg-cover">
         <!-- Popup ketika waktu habis -->
         <div id="popup_waktu_habis" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
-            <div class="bg-white border border-black p-5 pixel-font text-xs">
+            <div class="bg-white border border-black p-5 pixel-font text-l">
                 <p>Waktu habis! Anda akan diarahkan ke Halaman Utama!</p>
             </div>
         </div>
 
         <!-- Popup ketika jawaban benar -->
-        <div id="popup_jawaban_benar" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center pixel-font text-xs">
+        <div id="popup_jawaban_benar" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center pixel-font text-l">
             <div class="bg-white border border-black p-5">
                 <p>Jawaban Benar!</p>
                 <p>Anda akan diarahkan ke Chapter Selanjutnya!</p>
@@ -30,18 +30,18 @@
         </div>
 
         <!-- Popup ketika jawaban salah -->
-        <div id="popup_jawaban_salah" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center pixel-font text-xs">
+        <div id="popup_jawaban_salah" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center pixel-font text-l">
             <div class="bg-white border border-black p-5">
                 <p>Jawaban Salah!</p>
                 <button onclick="document.getElementById('popup_jawaban_salah').classList.add('hidden');">OK</button>
             </div>
         </div>
 
-        <div class="pixel-font text-xs text-white">
+        <div class="pixel-font text-l text-white">
             <h1>Selamat datang di Chapter Satu</h1>
         </div>
 
-        <div class="flex-col pixel-font text-xs bg-slate-500/50 p-2 rounded">
+        <div class="flex-col pixel-font text-l bg-slate-500/50 p-2 rounded">
             <div class="flex justify-center text-white">
                 <p>
                     Di sebuah mansion tua, Polisi menemukan Tuan Nyon tewas di kamar tidurnya,
@@ -65,7 +65,7 @@
 
         <!-- Tempat untuk menampilkan hasil -->
         <div class="flex flex-col text-white" id="output">
-            <div class="flex justify-center pixel-font text-xs">
+            <div class="flex justify-center pixel-font text-l">
                 <p><strong>Teks Dekripsi:</strong> <span id="decryptedText"></span></p>
             </div>
         </div>
@@ -78,7 +78,7 @@
             <form id="inputForm" class="flex flex-col items-center space-y-4">
                 <!-- Input Field -->
                 <input
-                    class="border-2 border-gray-400 rounded px-4 py-2 w-64 pixel-font text-xs text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="border-2 border-gray-400 rounded px-4 py-2 w-64 pixel-font text-l text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
                     type="text"
                     id="inputText"
                     onkeyup="this.value = this.value.toUpperCase();"
@@ -87,7 +87,7 @@
                 <!-- Submit Button -->
                 <button
                     type="submit"
-                    class="bg-red-500 hover:bg-red-700 text-black text-xs font-bold py-2 px-4 rounded-full shadow-lg pixel-font"
+                    class="bg-red-500 hover:bg-red-700 text-black text-l font-bold py-2 px-4 rounded-full shadow-lg pixel-font"
                 >
                     Next
                 </button>
@@ -95,7 +95,7 @@
         </div>
 
         <!-- Audio button + autoplay -->
-        <div class="bg-red-500 hover:bg-red-700 text-black text-xs font-bold py-2 px-4 rounded-full shadow-lg pixel-font">
+        <div class="bg-red-500 hover:bg-red-700 text-black text-l font-bold py-2 px-4 rounded-full shadow-lg pixel-font">
             <button id="unmuteButton">Unmute</button>
         </div>
 
